@@ -1,0 +1,17 @@
+{% if purchase_list %}
+	<h6>Películas compradas</h6>
+    
+    {% for p in purchase_list %}
+        <p><a href="#" data-reveal-id="contentmodal{{p.id}}">{{ p.product.name }}</a></p>
+        <div id="contentmodal{{p.id}}" class="reveal-modal expand">
+        	<h2>{{ p.product.name }}</h2>
+			<div class="flex-video">
+			  <iframe width="560" height="315" src="{{ p.product.content_url}}" frameborder="0" allowfullscreen></iframe>
+			</div>
+        	<a class="close-reveal-modal">&#215;</a>
+        </div>
+    {% endfor %}
+    
+{% else %}
+	<h6>No hay ninguna compra realizada.</h6>
+{% endif %}

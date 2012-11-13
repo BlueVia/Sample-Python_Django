@@ -1,3 +1,5 @@
+venv
+work
 *.log
 *.pot
 *.pyc

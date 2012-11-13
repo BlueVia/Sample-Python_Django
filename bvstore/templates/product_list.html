@@ -1,0 +1,38 @@
+{% if product_list %}
+    
+    {% for p in product_list %}
+
+            <div class="four mobile-two columns">
+              <img src="{{ p.image_url }}">
+
+              <div class="panel">
+                <h5>{{ p.name }}</h5>
+                <a href="{% url purchase p.id %}" tarjget="_blank" class="small radius button" data-reveal-id="purchasecodemodal{{p.id}}">Alquilar - {{p.price}} {{p.currency}}</a>
+
+              </div>
+            </div>
+
+                <div id="purchasecodemodal{{p.id}}" class="reveal-modal expand">
+                  <h2>Comprar {{ p.name }} ({{p.price}} {{p.currency}})</h2>
+                  <p class="lead">Elige medio de pago.</p>
+                    <div class="four columns">
+                      <a href="{% url purchase p.id %}" tarjget="_blank" class="small radius button" >Movistar / O2</a>
+                    </div>
+                    <div class="four columns">
+                      <a href="#" tarjget="_blank" class="small radius button" >Visa</a>
+                    </div>
+                    <div class="four columns">
+                      <a href="#" tarjget="_blank" class="small radius button" >Paypal</a>
+                    </div>
+                      
+                      
+                      
+
+                  <a class="close-reveal-modal">&#215;</a>
+                </div>
+
+    {% endfor %}
+    
+{% else %}
+	<h6>No hay películas disponibles.</h6>
+{% endif %}
